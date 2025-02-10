@@ -1,4 +1,4 @@
-<!-- Updated index.html with Audio Support -->
+<!-- Updated index.html with Audio Support and Controls -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,31 +39,54 @@
         </div>
         
         <div class="player">
-          <audio id="audio-player" controls autoplay>
+          <audio id="audio-player" controls>
             <source id="audio-source" src="audio/Maula Mere Maula - Anwar 320 Kbps.mp3" type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
+          <div class="controls">
+            <button id="prev">◁</button>
+            <button id="play">▶</button>
+            <button id="pause">▐▐</button>
+            <button id="next">▷</button>
+          </div>
         </div>
       </div>
     </div>
     <script>
+      const songs = [
+        "audio/Maula Mere Maula - Anwar 320 Kbps.mp3",
+        "audio/320kbps_Laila Majnu 2018 - O Meri Laila.mp3",
+        "audio/Ye Tune Kya Kiya - Once Upon A Time In Mumbaai Dobara 320 Kbps.mp3",
+        "audio/Jeena Jeena - Badlapur 320 Kbps.mp3",
+        "audio/old_MNIK-Tere Naina.mp3"
+      ];
+      let currentSongIndex = 0;
+      let audio = document.getElementById("audio-player");
+      let source = document.getElementById("audio-source");
+      
       document.querySelectorAll(".card").forEach((card, index) => {
         card.addEventListener("click", () => {
-          const songs = [
-            "audio/Maula Mere Maula - Anwar 320 Kbps.mp3",
-            "audio/320kbps_Laila Majnu 2018 - O Meri Laila.mp3",
-            "audio/Ye Tune Kya Kiya - Once Upon A Time In Mumbaai Dobara 320 Kbps.mp3",
-            "audio/Jeena Jeena - Badlapur 320 Kbps.mp3",
-            "audio/old_MNIK-Tere Naina.mp3"
-          ];
-          let audio = document.getElementById("audio-player");
-          let source = document.getElementById("audio-source");
-          source.src = songs[index];
-          audio.load();
-          audio.play();
+          currentSongIndex = index;
+          changeSong(currentSongIndex);
         });
+      });
+      
+      function changeSong(index) {
+        source.src = songs[index];
+        audio.load();
+        audio.play();
+      }
+      
+      document.getElementById("play").addEventListener("click", () => audio.play());
+      document.getElementById("pause").addEventListener("click", () => audio.pause());
+      document.getElementById("prev").addEventListener("click", () => {
+        currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+        changeSong(currentSongIndex);
+      });
+      document.getElementById("next").addEventListener("click", () => {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        changeSong(currentSongIndex);
       });
     </script>
   </body>
 </html>
-ss
