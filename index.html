@@ -1,160 +1,69 @@
+<!-- Updated index.html with Audio Support -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Playlist</title>
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Comic+Neue:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Link to external CSS -->
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- MAIN CONTAINER -->
     <div class="container">
-      <!-- LEFT SIDE -->
       <div class="left-side">
         <h1>Playlist</h1>
         <p>Songs that remind me of you</p>
       </div>
-      <!-- RIGHT SIDE -->
       <div class="right-side">
-        <!-- Hidden radios -->
         <input type="radio" name="slider" id="item-1" checked />
         <input type="radio" name="slider" id="item-2" />
         <input type="radio" name="slider" id="item-3" />
         <input type="radio" name="slider" id="item-4" />
         <input type="radio" name="slider" id="item-5" />
-
-        <!-- CARDS -->
+        
         <div class="cards">
-          <!-- Song 1: Maula mere Maula mere -->
           <label class="card" for="item-1" id="song-1">
-            <img src="images/maula.jpg" alt="Maula mere Maula mere" />
+            <img src="images/maula.jpg" alt="Maula Mere Maula" />
           </label>
-          <!-- Song 2: Tere Naina -->
           <label class="card" for="item-2" id="song-2">
-            <img src="images/tere.jpg" alt="Tere Naina" />
+            <img src="images/laila.jpg" alt="O Meri Laila" />
           </label>
-          <!-- Song 3: O'meri laila -->
           <label class="card" for="item-3" id="song-3">
-            <img src="images/laila.jpg" alt="O'meri laila" />
+            <img src="images/tune.jpg" alt="Ye Tune Kya Kiya" />
           </label>
-          <!-- Song 4: Jeena Jeena -->
           <label class="card" for="item-4" id="song-4">
             <img src="images/jeena.jpg" alt="Jeena Jeena" />
           </label>
-          <!-- Song 5: Ye Tune Kya Kia -->
           <label class="card" for="item-5" id="song-5">
-            <img src="images/tune.jpg" alt="Ye Tune Kya Kia" />
+            <img src="images/tere.jpg" alt="Tere Naina" />
           </label>
         </div>
-
-        <!-- PLAYER -->
+        
         <div class="player">
-          <!-- SONG INFO 1: Maula mere Maula mere -->
-          <div class="song-info active" id="song-info-1">
-            <div class="title">Maula mere Maula mere</div>
-            <div class="song-details">
-              <span class="artist">Aabida</span>
-              <span class="duration">4:16</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress"></div>
-            </div>
-            <div class="time-indicator">
-              <span class="elapsed"></span>
-              <span class="remaining"></span>
-            </div>
-          </div>
-          <!-- SONG INFO 2: Tere Naina -->
-          <div class="song-info" id="song-info-2">
-            <div class="title">Tere Naina</div>
-            <div class="song-details">
-              <span class="artist">Cutuuuu</span>
-              <span class="duration">4:10</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress"></div>
-            </div>
-            <div class="time-indicator">
-              <span class="elapsed"></span>
-              <span class="remaining"></span>
-            </div>
-          </div>
-          <!-- SONG INFO 3: O'Meri Laila -->
-          <div class="song-info" id="song-info-3">
-            <div class="title">O'Meri Laila</div>
-            <div class="song-details">
-              <span class="artist">Muskan</span>
-              <span class="duration">4:45</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress"></div>
-            </div>
-            <div class="time-indicator">
-              <span class="elapsed"></span>
-              <span class="remaining"></span>
-            </div>
-          </div>
-          <!-- SONG INFO 4: Jeena Jeena -->
-          <div class="song-info" id="song-info-4">
-            <div class="title">Jeena Jeena</div>
-            <div class="song-details">
-              <span class="artist">Atif Aslam</span>
-              <span class="duration">4:00</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress"></div>
-            </div>
-            <div class="time-indicator">
-              <span class="elapsed"></span>
-              <span class="remaining"></span>
-            </div>
-          </div>
-          <!-- SONG INFO 5: Ye Tune Kya Kia -->
-          <div class="song-info" id="song-info-5">
-            <div class="title">Ye Tune Kya Kia</div>
-            <div class="song-details">
-              <span class="artist">Rishabh</span>
-              <span class="duration">5:27</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress"></div>
-            </div>
-            <div class="time-indicator">
-              <span class="elapsed"></span>
-              <span class="remaining"></span>
-            </div>
-          </div>
-
-          <!-- PLAYER CONTROLS -->
-          <div class="controls">
-            <button id="prev">◁</button>
-            <button id="pause">▐▐</button>
-            <button id="next">▷</button>
-          </div>
-          <!-- EXTRA CONTROLS: Favorite Button Only -->
-          <div class="extra-controls">
-            <button id="favorite" class="favorite-btn">♡</button>
-          </div>
+          <audio id="audio-player" controls autoplay>
+            <source id="audio-source" src="audio/Maula Mere Maula - Anwar 320 Kbps.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
         </div>
       </div>
     </div>
-
-    <!-- MODAL (Using the provided pop-up content) -->
-    <div class="modal-overlay" id="notificationModal">
-      <div class="modal-content" id="modalContent">
-        <h2>Someone sent you a playlist</h2>
-        <p>Hey, it’s for you. I hope you listen to it.</p>
-        <button class="modal-close" onclick="closeModal()">Open Playlist</button>
-      </div>
-    </div>
-
-    <!-- Link to external JS -->
-    <script src="script.js"></script>
+    <script>
+      document.querySelectorAll(".card").forEach((card, index) => {
+        card.addEventListener("click", () => {
+          const songs = [
+            "audio/Maula Mere Maula - Anwar 320 Kbps.mp3",
+            "audio/320kbps_Laila Majnu 2018 - O Meri Laila.mp3",
+            "audio/Ye Tune Kya Kiya - Once Upon A Time In Mumbaai Dobara 320 Kbps.mp3",
+            "audio/Jeena Jeena - Badlapur 320 Kbps.mp3",
+            "audio/old_MNIK-Tere Naina.mp3"
+          ];
+          let audio = document.getElementById("audio-player");
+          let source = document.getElementById("audio-source");
+          source.src = songs[index];
+          audio.load();
+          audio.play();
+        });
+      });
+    </script>
   </body>
 </html>
+ss
